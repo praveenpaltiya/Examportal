@@ -1,0 +1,45 @@
+
+
+    <h1 class="ml20">Add questions to {{qtitle}}</h1>
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col md-12">
+            <div class="container text-center">
+                <button mat-raised-button color="primary" [routerLink]="'/admin/add-question/' + qId+'/'+qtitle">Add Questions</button>
+            </div>
+        <mat-card *ngFor="let q of questions; let i=index" class="mt20">
+                <mat-card-content>
+
+                    <p>
+                        <b>Q {{i+1}}</b>
+                        <span class="ml20" [innerHTML]="q.content"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>1){{q.option1}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>2){{q.option2}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>3){{q.option3}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>4){{q.option4}}</p>
+                                            </div>
+                                                </div>
+                                                <mat-divider></mat-divider>
+                                                <p class="mt20">Correct Answer: {{q.answer}}</p>
+                                                </div>
+                                                
+
+                </mat-card-content>
+                        <div class="container text-center">
+                    <button mat-raised-button   color="accent" [routerLink]="'/admin/update-question/'">Update</button>
+                    <button mat-raised-button color="accent" (click)="DeleteQuestion(q.quesId)">Delete</button>
+                </div>
+        </mat-card>
+        </div>
+    </div>
+</div>
